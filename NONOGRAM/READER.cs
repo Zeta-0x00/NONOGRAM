@@ -141,34 +141,48 @@ namespace NONOGRAM
         {
             String axisX = "";
             String axisY = "";
-            foreach (var z in NX)
+            for(int z =0; z<this.NX.Count; z++)
             {
-                foreach (int v in z)
+                foreach (int v in NX[z])
                 {
                     if (!v.Equals(0))
                     {
                         axisX += this.Keys[v];
                     }
                 }
-                axisX += " ";
+                if(z < this.NX.Count-1)
+                {
+                    axisX += " ";
+                }
+                
             }
-            axisX.Trim();
-            foreach (var z in NY)
+            for(int z=0; z<this.NY.Count; z++)
             {
-                foreach (int v in z)
+                foreach (int v in NY[z])
                 {
                     if (!v.Equals(0))
                     {
                         axisY += this.Keys[v];
                     }
                 }
-                axisY += " ";
+                if (z < this.NY.Count - 1)
+                {
+                    axisY += " ";
+                }
             }
-            axisY.Trim();
-            //Console.WriteLine(axisX);
-            //Console.WriteLine(axisY);
             String[] k = { axisX, axisY };
             return k;
+        }
+        public string ToHex(String T)
+        {
+            //Method to debug Hexa
+            var sb = new StringBuilder();
+            var bytes = Encoding.Unicode.GetBytes(T);
+            foreach (var t in bytes)
+            {
+                sb.Append(t.ToString("X2"));
+            }
+            return sb.ToString();
         }
         #endregion
 

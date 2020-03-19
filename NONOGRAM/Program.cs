@@ -13,12 +13,10 @@ namespace NONOGRAM
         {
             READER reader = new READER("C:/Users/Zeta/Documents/TestFile.txt");
             String[] Da = reader.GetData();
-            String j = Da[0];
-            String k = Da[1];
-            Console.WriteLine(j);
-            Console.WriteLine(k);
+            Console.WriteLine(Da[0]);
+            Console.WriteLine(Da[1]);
             Console.WriteLine();
-            //Nonogram.Solve(j,k);
+            Nonogram.Solve(Da[0],Da[1]);
             Console.ReadLine();
         }
         
